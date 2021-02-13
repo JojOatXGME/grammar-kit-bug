@@ -21,7 +21,7 @@ dependencies {
 
 intellij {
     pluginName = 'grammar-kit-bug'
-    version = '2020.1'
+    version = '2020.3.1'
 }
 
 grammarKit {

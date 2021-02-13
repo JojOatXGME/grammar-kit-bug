@@ -1,0 +1,26 @@
+{
+  parserClass="org.example.idea.lang.LangParser"
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Lang"
+  psiImplClassSuffix="Impl"
+  psiPackage="org.example.idea.psi"
+  psiImplPackage="org.example.idea.psi.impl"
+
+  elementTypeHolderClass="org.example.idea.psi.LangTypes"
+  elementTypeClass="org.example.idea.psi.LangElementType"
+  tokenTypeClass="org.example.idea.psi.LangTokenType"
+
+  tokens = [
+    LPAREN='('
+    RPAREN=')'
+  ]
+}
+
+file ::= root
+root ::=
+    parens AFTER
+  | parens
+parens ::= '(' content ')' { pin=1 }
+content ::= A B { pin=1 recoverWhile=parens_recover }
+private parens_recover ::= !')'

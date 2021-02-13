@@ -1,0 +1,17 @@
+package org.example.idea.lang;
+
+import com.intellij.extapi.psi.PsiFileBase;
+import com.intellij.openapi.fileTypes.FileType;
+import com.intellij.psi.FileViewProvider;
+import org.jetbrains.annotations.NotNull;
+
+public final class LangFile extends PsiFileBase {
+  public LangFile(@NotNull FileViewProvider viewProvider) {
+    super(viewProvider, LangLanguage.INSTANCE);
+  }
+
+  @Override
+  public @NotNull FileType getFileType() {
+    return LangFileType.INSTANCE;
+  }
+}

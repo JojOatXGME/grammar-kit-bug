@@ -1,0 +1,24 @@
+<idea-plugin>
+
+    <id>grammar-kit-bug</id>
+    <name>Grammar-Kit Bug</name>
+    <vendor>org.example</vendor>
+
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+
+        <fileType
+                name="Lang file"
+                implementationClass="org.example.idea.lang.LangFileType"
+                fieldName="INSTANCE"
+                language="Lang"
+                extensions="lang" />
+
+        <lang.parserDefinition
+                language="Lang"
+                implementationClass="org.example.idea.lang.LangParserDefinition" />
+
+    </extensions>
+
+</idea-plugin>

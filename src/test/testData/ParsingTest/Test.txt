@@ -1,0 +1,9 @@
+FILE(0,3)
+  LangRootImpl(ROOT)(0,3)
+    LangParensImpl(PARENS)(0,3)
+      PsiElement(()('(')(0,1)
+      LangContentImpl(CONTENT)(1,2)
+        PsiElement(A)('A')(1,2)
+        PsiErrorElement:')' or B expected, got ')'(2,2)
+          <empty list>
+      PsiElement())(')')(2,3)

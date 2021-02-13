@@ -1,0 +1,63 @@
+import org.jetbrains.grammarkit.tasks.GenerateLexer
+import org.jetbrains.grammarkit.tasks.GenerateParser
+
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '0.6.5'
+    id 'org.jetbrains.grammarkit' version '2020.3.2'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+intellij {
+    pluginName = 'grammar-kit-bug'
+    version = '2020.1'
+}
+
+grammarKit {
+    jflexRelease = "1.7.0-1"
+    grammarKitRelease = "2020.1"
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir "src/gen/java"
+        }
+    }
+}
+
+tasks {
+    task generateNixLexer(type: GenerateLexer) {
+        source = "src/main/lang/Lang.flex"
+        targetDir = "src/gen/java/org/example/idea/lang"
+        targetClass = "_LangLexer"
+        purgeOldFiles = true
+    }
+
+    task generateNixParser(type: GenerateParser) {
+        source = "src/main/lang/Lang.bnf"
+        targetRoot = "src/gen/java"
+        pathToParser = "/org/example/idea/lang/LangParser"
+        pathToPsiRoot = "/org/example/idea/psi"
+        purgeOldFiles = true
+    }
+
+    compileJava {
+        dependsOn(generateNixLexer, generateNixParser)
+    }
+
+    test {
+        useJUnit()
+    }
+}

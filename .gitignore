@@ -4,8 +4,19 @@
 # Log file
 *.log
 
-# BlueJ files
-*.ctxt
+# Gradle
+.gradle/
+build/
+
+# IntelliJ
+.idea/
+out/
+
+# Vim
+.*.sw[nop]
+
+# VS Code
+.vscode/
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
@@ -21,3 +32,7 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# Operating Systems
+.DS_Store
+Thumbs.db

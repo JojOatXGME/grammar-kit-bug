@@ -20,4 +20,4 @@ import static org.example.idea.psi.LangTypes.*;
 "AFTER"         { return AFTER; }
 "("             { return LPAREN; }
 ")"             { return RPAREN; }
-\ \t\r\n        { return com.intellij.psi.TokenType.WHITE_SPACE; }
+[\ \t\r\n]      { return com.intellij.psi.TokenType.WHITE_SPACE; }

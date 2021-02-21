@@ -12,15 +12,14 @@
   tokenTypeClass="org.example.idea.psi.LangTokenType"
 
   tokens = [
-    LPAREN='('
-    RPAREN=')'
+    KW='kw'
+    SEMI=';'
+    VALID='valid'
+    INVALID='invalid'
   ]
 }
 
 file ::= root
-root ::=
-    parens AFTER
-  | parens
-parens ::= '(' content ')' { pin=1 }
-content ::= A B { pin=1 recoverWhile=parens_recover }
-private parens_recover ::= !')'
+root ::= 'kw' content ';' { pin=1 }
+content ::= 'valid' { recoverWhile=kw_recover }
+private kw_recover ::= !';'

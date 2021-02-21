@@ -15,9 +15,8 @@ import static org.example.idea.psi.LangTypes.*;
 
 %%
 
-"A"             { return A; }
-"B"             { return B; }
-"AFTER"         { return AFTER; }
-"("             { return LPAREN; }
-")"             { return RPAREN; }
+"kw"            { return KW; }
+";"             { return SEMI; }
+"valid"         { return VALID; }
+"invalid"       { return INVALID; }
 [\ \t\r\n]      { return com.intellij.psi.TokenType.WHITE_SPACE; }
